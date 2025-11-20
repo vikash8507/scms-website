@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduManage Pro - Complete School Content Management System | Multi-Portal Solution</title>
+    <meta name="description"
+        content="Transform your educational institution with EduManage Pro - A comprehensive school management system featuring 9 specialized portals, custom branding, role-based permissions, and integrated e-commerce for materials.">
+    <meta name="keywords"
+        content="school management system, education ERP, school admin portal, student portal, parent portal, school CMS, role-based permissions, custom school branding">
+    <meta name="author" content="EduManage Pro">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="EduManage Pro - Complete School Management System">
+    <meta property="og:description"
+        content="Revolutionary multi-portal school management solution with custom branding and advanced permissions">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/og-image.jpg">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "EduManage Pro",
+      "applicationCategory": "EducationalApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "Contact for pricing"
+      },
+      "description": "Comprehensive school content management system with multiple portals"
+    }
+    </script>
+
+    <style>
+        /* Reset */
+        /* Header banner wrapper */
+        .dev-banner {
+            width: 100%;
+            background: linear-gradient(90deg, rgba(30, 136, 229, 0.12), rgba(30, 136, 229, 0.04));
+            border-bottom: 1px solid rgba(17, 24, 39, 0.04);
+            align-items: center;
+        }
+
+
+        .baner-container {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+
+        /* Left: title + subtitle */
+        .dev-title {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .dev-title h1 {
+            font-size: 20px;
+            letter-spacing: 0.2px;
+            color: var(--primary);
+        }
+
+        .dev-title p {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+
+        /* Middle: progress-ish visual */
+        .progress-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 16px;
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+            min-width: 320px;
+        }
+
+        .progress-info {
+            display: flex;
+            flex-direction: column
+        }
+
+        .progress-info strong {
+            font-size: 14px
+        }
+
+        .progress-info small {
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+
+        .bar-wrap {
+            width: 220px;
+            height: 10px;
+            background: linear-gradient(90deg, #e6eefc, #f6f9ff);
+            border-radius: 999px;
+            overflow: hidden
+        }
+
+        .bar-fill {
+            height: 100%;
+            width: 55%;
+            background: linear-gradient(90deg, var(--primary), #6fb3ff);
+            border-radius: 999px;
+            transform-origin: left center;
+            animation: loading 2.2s ease-in-out infinite
+        }
+
+
+        @keyframes loading {
+            0% {
+                transform: scaleX(0.3) translateX(-10%)
+            }
+
+            50% {
+                transform: scaleX(1.02) translateX(0%)
+            }
+
+            100% {
+                transform: scaleX(0.8) translateX(0%)
+            }
+        }
+
+
+        /* Right: small badge + action */
+        .dev-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: linear-gradient(180deg, var(--glass), rgba(255, 255, 255, 0.8));
+            border-radius: 999px;
+            border: 1px solid rgba(30, 136, 229, 0.12);
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 8px rgba(255, 179, 0, 0.35);
+            animation: pulse 1.6s infinite
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.6
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+
+        .cta {
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: transparent;
+            border: 1px dashed rgba(30, 136, 229, 0.2);
+            font-size: 13px;
+            color: var(--primary);
+            cursor: default
+        }
+
+
+        /* Small responsive tweaks */
+        @media (max-width:880px) {
+            .container {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .progress-card {
+                min-width: unset;
+                width: 100%
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Primary Meta Tags -->
+    <title>Your Page Title | EduManage Pro</title>
+    <meta name="title" content="Your Page Title | EduManage Pro">
+    <meta name="description" content="Your page description (150-160 characters)">
+    <meta name="keywords" content="relevant, keywords, here">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.edumanagepro.com/">
+    <meta property="og:title" content="Your Page Title | EduManage Pro">
+    <meta property="og:description" content="Your page description">
+    <meta property="og:image" content="https://www.edumanagepro.com/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.edumanagepro.com/">
+    <meta property="twitter:title" content="Your Page Title | EduManage Pro">
+    <meta property="twitter:description" content="Your page description">
+    <meta property="twitter:image" content="https://www.edumanagepro.com/images/twitter-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.edumanagepro.com/your-page.html">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <header class="dev-banner" role="banner">
+            <div class="baner-container">
+                <div class="dev-title">
+                    <h1>Development — In progress</h1>
+                    <p>We're actively building this area. Some features may be incomplete or hidden.</p>
+                </div>
+
+
+                <div class="progress-card" aria-hidden="false">
+                    <svg width="46" height="46" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="1" width="22" height="22" rx="6" fill="#f6fbff" stroke="#e6f0ff" />
+                        <path d="M6 15L10 11L13 14L18 9" stroke="#1e88e5" stroke-width="1.6" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+
+
+                    <div class="progress-info">
+                        <strong>Feature rollout</strong>
+                        <small>Phase 2 — building core flows</small>
+                    </div>
+
+
+                    <div class="bar-wrap" aria-hidden="true">
+                        <div class="bar-fill"></div>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">📚</span>
+                    <span class="logo-text">EduManage <strong>Pro</strong></span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#portals">Portals</a></li>
+                    <!-- <li><a href="#pricing">Pricing</a></li> -->
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="#demo" class="btn btn-secondary">Request Demo</a>
+                    <a href="contact.html" class="btn btn-primary">Get Started</a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <!-- <span class="hero-badge">🚀 Trusted by 500+ Educational Institutions</span> -->
+                    <h1 class="hero-title">The Complete School Management Ecosystem</h1>
+                    <p class="hero-subtitle">Streamline every aspect of your educational institution with 9 specialized
+                        portals, custom branding, and powerful role-based permissions. From administration to
+                        e-commerce, we've got you covered. </p>
+                    <ul class="portal-features">
+                        <li>Automatic payment deduction based uses and subscription plans.</li>
+                        <li>Detailed invoice will send on email.</li>
+                        <li>Real time notification alerts for anything.</li>
+                        <li>Real time chat application to chat with your members</li>
+                    </ul>
+                    <div class="hero-cta">
+                        <a href="#demo" class="btn btn-primary btn-lg">Start Free Trial</a>
+                        <a href="#video" class="btn btn-outline btn-lg">
+                            <span class="play-icon">▶</span> Watch Demo
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <strong>500+</strong>
+                            <span>Schools</span>
+                        </div>
+                        <div class="stat">
+                            <strong>100K+</strong>
+                            <span>Active Users</span>
+                        </div>
+                        <div class="stat">
+                            <strong>99.9%</strong>
+                            <span>Uptime</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/dashboard.png" alt="EduManage Pro Dashboard Interface">
+                    <div class="floating-card card-1">
+                        <span class="card-icon">✅</span>
+                        <span>Real-time Attendance</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <span class="card-icon">📊</span>
+                        <span>Advanced Analytics</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <span class="card-icon">🔒</span>
+                        <span>Secure & Compliant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-section">
+        <div class="container">
+            <p class="trust-title">Trusted by leading educational institutions worldwide</p>
+            <div class="trust-logos">
+                <div class="trust-logo">School District 1</div>
+                <div class="trust-logo">International Academy</div>
+                <div class="trust-logo">Elite Schools</div>
+                <div class="trust-logo">Global Education</div>
+                <div class="trust-logo">Smart Learning</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portals Overview Section -->
+    <section id="portals" class="portals-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Nine Powerful Portals</span>
+                <h2>One System, Multiple Perspectives</h2>
+                <p>Every stakeholder gets their own customized portal with role-specific features and permissions</p>
+            </div>
+
+            <div class="portals-grid">
+                <!-- Master Admin Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">👑</div>
+                    <h3>Organization Admin Portal</h3>
+                    <p>Complete control over the organization level ecosystem. Manage multiple schools, configure
+                        organization-wide
+                        settings, and access comprehensive analytics.</p>
+                    <ul class="portal-features">
+                        <li>Multi-school management</li>
+                        <li>Organization-wide analytics</li>
+                        <li>User role configuration</li>
+                        <li>Organization settings control</li>
+                    </ul>
+                    <a href="" class="portal-link">Learn More →</a>
+                </div>
+
+                <!-- School Admin Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">🏫</div>
+                    <h3>School Admin Portal</h3>
+                    <p>Dedicated portal for school principals and administrators to manage their institution
+                        efficiently.</p>
+                    <ul class="portal-features">
+                        <li>School operations</li>
+                        <li>Staff management</li>
+                        <li>Admission control</li>
+                        <li>Performance tracking</li>
+                    </ul>
+                    <a href="" class="portal-link">Learn More →</a>
+                </div>
+
+                <!-- Sub Admin/Staff Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">👥</div>
+                    <h3>Sub Admin & Staff Portal</h3>
+                    <p>Empower your administrative staff with delegated permissions and streamlined workflows.</p>
+                    <ul class="portal-features">
+                        <li>Department management</li>
+                        <li>Staff coordination</li>
+                        <li>Task assignment</li>
+                        <li>Report generation</li>
+                    </ul>
+                    <a href="" class="portal-link">Learn More →</a>
+                </div>
+
+                <!-- School DEO Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">📝</div>
+                    <h3>School DEO Portal</h3>
+                    <p>Data Entry Operators get specialized tools for efficient data management and record keeping.</p>
+                    <ul class="portal-features">
+                        <li>Student data entry</li>
+                        <li>Record management</li>
+                        <li>Document processing</li>
+                        <li>Data validation</li>
+                    </ul>
+                    <a href="" class="portal-link">Learn More →</a>
+                </div>
+
+                <!-- Accountant Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">💰</div>
+                    <h3>School Accountant Portal</h3>
+                    <p>Complete financial management with automated billing, expense tracking, and reporting.</p>
+                    <ul class="portal-features">
+                        <li>Fee management</li>
+                        <li>Expense tracking</li>
+                        <li>Financial reports</li>
+                        <li>Payment processing</li>
+                    </ul>
+                    <a href="" class="portal-link">Learn More →</a>
+                </div>
+
+                <!-- Teacher Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">👨‍🏫</div>
+                    <h3>School Teacher Portal</h3>
+                    <p>Everything teachers need to manage classes, assignments, assessments, and student engagement.</p>
+                    <ul class="portal-features">
+                        <li>Class management</li>
+                        <li>Assignment creation</li>
+                        <li>Grade management</li>
+                        <li>Parent communication</li>
+                    </ul>
+                    <a href="" class="portal-link">Learn More →</a>
+                </div>
+
+                <!-- Student Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">🎓</div>
+                    <h3>Student Portal</h3>
+                    <p>Students access coursework, track progress, submit assignments, and communicate with teachers.
+                    </p>
+                    <ul class="portal-features">
+                        <li>Course materials</li>
+                        <li>Assignment submission</li>
+                        <li>Grade tracking</li>
+                        <li>Timetable access</li>
+                    </ul>
+                    <a href="" class="portal-link">Learn More →</a>
+                </div>
+
+                <!-- Parent Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">👪</div>
+                    <h3>Student's Parent Portal</h3>
+                    <p>Parents stay connected with real-time updates on attendance, grades, fees, and school activities.
+                    </p>
+                    <ul class="portal-features">
+                        <li>Real-time notifications</li>
+                        <li>Progress monitoring</li>
+                        <li>Fee payment</li>
+                        <li>Teacher messaging</li>
+                    </ul>
+                    <a href="" class="portal-link">Learn More →</a>
+                </div>
+
+                <!-- Materials Seller Portal -->
+                <div class="portal-card">
+                    <div class="portal-icon">🛒</div>
+                    <h3>Materials Sellers Portal</h3>
+                    <p>Integrated e-commerce platform for approved vendors to sell educational materials directly to
+                        students.</p>
+                    <ul class="portal-features">
+                        <li>Product management</li>
+                        <li>Order processing</li>
+                        <li>Inventory tracking</li>
+                        <li>Sales analytics</li>
+                    </ul>
+                    <a href="" class="portal-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Powerful Features</span>
+                <h2>Everything You Need, All in One Place</h2>
+                <p>Built with modern technology and designed for scalability</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Custom Theme Branding</h3>
+                    <p>Organization-level and school-level custom theming. Each school maintains its unique brand
+                        identity with customizable colors, logos, and design elements.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Role-Based Permissions</h3>
+                    <p>Granular access control with fully customizable role-based permissions. Define exactly what each
+                        user can see and do within the system.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3>Cloud-Based Architecture</h3>
+                    <p>Access from anywhere, anytime. Secure cloud infrastructure ensures 99.9% uptime and automatic
+                        backups.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile-First Design</h3>
+                    <p>Fully responsive interface that works seamlessly on smartphones, tablets, and desktops. Native
+                        mobile apps available.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Integrated E-Commerce</h3>
+                    <p>Built-in marketplace for educational materials with secure payment processing, inventory
+                        management, and order tracking.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Real-time dashboards and comprehensive reports. Track performance, attendance, finances, and
+                        engagement metrics.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Smart Notifications</h3>
+                    <p>Automated alerts via email, SMS, and push notifications keep everyone informed about important
+                        updates.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Multi-Language Support</h3>
+                    <p>Support for multiple languages and localization to serve diverse communities and international
+                        schools.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-level encryption, GDPR compliance, regular security audits, and data protection measures.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Seamless Integration</h3>
+                    <p>Integrate with popular tools like Google Classroom, Zoom, payment gateways, and accounting
+                        software.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized performance ensures instant page loads and smooth user experience even with thousands
+                        of concurrent users.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Customizable Workflows</h3>
+                    <p>Adapt the system to your processes. Create custom forms, approval workflows, and automated
+                        actions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits-section">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefits-content">
+                    <span class="section-badge">Why Choose Us</span>
+                    <h2>Transform Your Educational Institution</h2>
+                    <p>EduManage Pro isn't just software—it's a complete digital transformation platform designed
+                        specifically for modern educational institutions.</p>
+
+                    <div class="benefit-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">⏱️</div>
+                            <div class="benefit-text">
+                                <h4>Save 20+ Hours Weekly</h4>
+                                <p>Automate repetitive tasks and streamline workflows to free up valuable time for what
+                                    matters most—education.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💵</div>
+                            <div class="benefit-text">
+                                <h4>Reduce Operational Costs by 40%</h4>
+                                <p>Eliminate paperwork, reduce manual errors, and optimize resource allocation with
+                                    intelligent automation.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📈</div>
+                            <div class="benefit-text">
+                                <h4>Increase Parent Engagement by 60%</h4>
+                                <p>Real-time updates and transparent communication foster stronger parent-school
+                                    relationships.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎓</div>
+                            <div class="benefit-text">
+                                <h4>Improve Student Outcomes</h4>
+                                <p>Data-driven insights help identify struggling students early and provide timely
+                                    interventions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#demo" class="btn btn-primary btn-lg">Schedule a Demo</a>
+                </div>
+
+                <div class="benefits-visual">
+                    <img src="images/benefits.png" alt="Benefits of EduManage Pro">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branding Section -->
+    <section class="branding-section">
+        <div class="container">
+            <div class="branding-content">
+                <div class="branding-text">
+                    <span class="section-badge">Custom Branding</span>
+                    <h2>Your Brand, Your Identity</h2>
+                    <p>Maintain your unique institutional identity with powerful multi-level branding capabilities.</p>
+
+                    <div class="branding-levels">
+                        <div class="branding-level">
+                            <h4>🏢 Organization-Level Theming</h4>
+                            <p>Create a cohesive brand experience across all schools in your network. Set default
+                                themes, color schemes, and branding guidelines at the organization level.</p>
+                        </div>
+
+                        <div class="branding-level">
+                            <h4>🏫 School-Level Customization</h4>
+                            <p>Each school can override organization settings with their own unique branding. Upload
+                                custom logos, choose color palettes, and personalize the interface.</p>
+                        </div>
+
+                        <div class="branding-level">
+                            <h4>🎨 White-Label Solution</h4>
+                            <p>Complete white-label capabilities mean the platform feels entirely yours. No third-party
+                                branding—just your identity.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="branding-examples">
+                    <div class="theme-preview">
+                        <div class="theme-card theme-1">
+                            <div class="theme-header">School A</div>
+                            <div class="theme-body"></div>
+                        </div>
+                        <p>Classic Blue Theme</p>
+                    </div>
+                    <div class="theme-preview">
+                        <div class="theme-card theme-2">
+                            <div class="theme-header">School B</div>
+                            <div class="theme-body"></div>
+                        </div>
+                        <p>Modern Green Theme</p>
+                    </div>
+                    <div class="theme-preview">
+                        <div class="theme-card theme-3">
+                            <div class="theme-header">School C</div>
+                            <div class="theme-body"></div>
+                        </div>
+                        <p>Elegant Purple Theme</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Success Stories</span>
+                <h2>Loved by Educators Worldwide</h2>
+                <p>See what our clients have to say about their experience</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"EduManage Pro has transformed how we operate. The role-based
+                        permissions are exactly what we needed, and the custom branding makes each of our 15 schools
+                        feel unique while maintaining centralized control."</p>
+                    <div class="testimonial-author">
+                        <img src="images/male.png" alt="Sarah Johnson">
+                        <div>
+                            <strong>Sarah Johnson</strong>
+                            <span>District Superintendent, Metro School District</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"We've reduced our administrative workload by 40% since implementing
+                        EduManage Pro. The automated workflows and integrated e-commerce for materials have streamlined
+                        operations significantly."</p>
+                    <div class="testimonial-author">
+                        <img src="images/female.png" alt="Priya Patel">
+                        <div>
+                            <strong>Priya Patel</strong>
+                            <span>Administrator, Global International School</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The parent portal has been a game-changer. Parents now have real-time
+                        access to their child's progress, and our communication has never been better. Parent
+                        satisfaction scores increased by 75%!"</p>
+                    <div class="testimonial-author">
+                        <img src="images/male.png" alt="Michael Chen">
+                        <div>
+                            <strong>Michael Chen</strong>
+                            <span>Principal, Riverside Academy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    Pricing Section
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Simple Pricing</span>
+                <h2>Plans That Scale With You</h2>
+                <p>Choose the perfect plan for your institution. All plans include 24/7 support and regular updates.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="pricing-amount">
+                        <span class="currency">$</span>
+                        <span class="amount">299</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p class="pricing-description">Perfect for small schools</p>
+                    <ul class="pricing-features">
+                        <li>✅ Up to 500 students</li>
+                        <li>✅ All 9 portals</li>
+                        <li>✅ Basic branding</li>
+                        <li>✅ Email support</li>
+                        <li>✅ Mobile apps</li>
+                        <li>✅ Monthly reports</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline btn-full">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Professional</h3>
+                    <div class="pricing-amount">
+                        <span class="currency">$</span>
+                        <span class="amount">599</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <p class="pricing-description">For growing institutions</p>
+                    <ul class="pricing-features">
+                        <li>✅ Up to 2,000 students</li>
+                        <li>✅ All 9 portals</li>
+                        <li>✅ Full custom branding</li>
+                        <li>✅ Priority support</li>
+                        <li>✅ Advanced analytics</li>
+                        <li>✅ API access</li>
+                        <li>✅ Custom workflows</li>
+                        <li>✅ Integrations</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary btn-full">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="pricing-amount">
+                        <span class="amount">Custom</span>
+                    </div>
+                    <p class="pricing-description">For large organizations</p>
+                    <ul class="pricing-features">
+                        <li>✅ Unlimited students</li>
+                        <li>✅ Multi-school management</li>
+                        <li>✅ White-label solution</li>
+                        <li>✅ Dedicated support</li>
+                        <li>✅ Custom development</li>
+                        <li>✅ SLA guarantee</li>
+                        <li>✅ Training sessions</li>
+                        <li>✅ Migration assistance</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline btn-full">Contact Sales</a>
+                </div>
+            </div>
+
+            <div class="pricing-note">
+                <p>🎁 <strong>Special Offer:</strong> Get 2 months free when you choose annual billing. All plans include a 30-day money-back guarantee.</p>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your School?</h2>
+                <p>Join 500+ educational institutions already using EduManage Pro to streamline operations and improve
+                    outcomes.</p>
+                <div class="cta-buttons">
+                    <a href="#demo" class="btn btn-white btn-lg">Start Free Trial</a>
+                    <a href="contact.html" class="btn btn-outline-white btn-lg">Schedule Demo</a>
+                </div>
+                <p class="cta-note">No credit card required • 30-day free trial • Cancel anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-icon">📚</span>
+                        <span class="logo-text">EduManage <strong>Pro</strong></span>
+                    </div>
+                    <p>The complete school content management system trusted by educational institutions worldwide.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#portals">Portals</a></li>
+                        <!-- <li><a href="#pricing">Pricing</a></li> -->
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduManage Pro. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
